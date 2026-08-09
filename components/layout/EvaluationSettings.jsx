@@ -20,6 +20,7 @@ export default function EvaluationSettings({
   setFillAutomatically,
   students,
   setMarks,
+  subject,
 }) {
   const handleAutoFill = (checked) => {
     setFillAutomatically(checked);
@@ -51,17 +52,11 @@ export default function EvaluationSettings({
           </SelectTrigger>
 
           <SelectContent>
-            <SelectItem value="Theme 1">Theme 1</SelectItem>
-
-            <SelectItem value="Theme 2">Theme 2</SelectItem>
-
-            <SelectItem value="Theme 3">Theme 3</SelectItem>
-
-            <SelectItem value="Theme 4">Theme 4</SelectItem>
-
-            <SelectItem value="Theme 5">Theme 5</SelectItem>
-
-            <SelectItem value="Theme 6">Theme 6</SelectItem>
+            {subject.evaluations.map((evaluation) => (
+              <SelectItem key={evaluation} value={evaluation}>
+                {evaluation}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>

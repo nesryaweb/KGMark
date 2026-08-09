@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 import { Separator } from "@/components/ui/separator";
+import { addChibtAverages, saveSemesterAverages } from "@/lib/calculations";
+import { getSubject } from "@/lib/getSubject";
 
 import { getStorage, setStorage } from "@/lib/storage";
 import { students } from "@/lib/student";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -18,15 +21,25 @@ export default function AddMarks() {
   const [selectedEvaluation, setSelectedEvaluation] = useState("");
   const [fullMark, setFullMark] = useState(0);
   const [fillAutomatically, setFillAutomatically] = useState(false);
+  const searchParams = useSearchParams();
+
+  const subjectName = searchParams.get("subject");
+  const subject = getSubject(subjectName);
+  if (!subject) {
+    return <div>Subject not found</div>;
+  }
 
   const handleSave = () => {
-    const assessment = {
+    let assessment = {
+      Subject: subjectName,
       evaluationNumber: selectedEvaluation,
       outOf: fullMark,
       marks: marks,
     };
-
-    const existingData = getStorage("chibtMarks", []);
+    if (subject.calculateEvaluationAverage) {
+      assessment = addChibtAverages(assessment);
+    }
+    const existingData = getStorage(subjectName + "Marks", []);
 
     const existingAssessments = Array.isArray(existingData)
       ? existingData
@@ -36,8 +49,8 @@ export default function AddMarks() {
 
     const updatedAssessments = [...existingAssessments, assessment];
 
-    setStorage("chibtMarks", updatedAssessments);
-
+    setStorage(subjectName + "Marks", updatedAssessments);
+    saveSemesterAverages(updatedAssessments, students, subject);
     toast.success(`${students.length} total marks recorded`);
 
     setMarks({});
@@ -58,11 +71,12 @@ export default function AddMarks() {
           <Link href="/">← Back</Link>
         </Button>
         <h2 className="text-muted-foreground">
-          Record marks for an evaluation
+          Record {subject.name} Evaluation Marks
         </h2>
         <Card className="w-full p-8 overflow-y-auto">
-          <h1 className="text-2xl font-bold text-white">Chibt Mark</h1>
+          <h1 className="text-2xl font-bold text-white">{subject.name} Mark</h1>
           <EvaluationSettings
+            subject={subject}
             selectedEvaluation={selectedEvaluation}
             setSelectedEvaluation={setSelectedEvaluation}
             fullMark={fullMark}

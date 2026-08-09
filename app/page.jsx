@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center  font-sans bg-slate-950">
-      <main className="flex flex-col items-center justify-center gap-4 p-8 w-2/3 bg-slate-900 rounded-lg h-screen">
+    <div className="flex flex-col flex-1 items-center justify-center font-sans bg-slate-950">
+      <main className="flex flex-col items-center justify-center gap-4 p-8 max-w-300 w-screen bg-slate-900 rounded-lg h-screen">
         <h1 className="text-4xl font-bold text-white">KG MARK</h1>
         <h2 className="text-muted-foreground">
           Kindergarten Mark Recording System
@@ -24,7 +24,7 @@ export default function Home() {
                   size="lg"
                   className="h-11 px-8 text-slate-900 cursor-pointer font-bold rounded-full"
                 >
-                  <Link href="/add-marks">Add Marks</Link>
+                  <Link href="/add-marks?subject=chibt">Add Marks</Link>
                 </Button>
 
                 <Button
@@ -32,7 +32,7 @@ export default function Home() {
                   size="lg"
                   className="h-11 px-8 cursor-pointer font-bold rounded-full"
                 >
-                  <Link href="/show-marks">Show Marks</Link>
+                  <Link href="/show-marks?subject=chibt">Show Marks</Link>
                 </Button>
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function Home() {
                   size="lg"
                   className="h-11 px-8 text-slate-900 cursor-pointer font-bold rounded-full"
                 >
-                  <Link href="/add-marks">Add Marks</Link>
+                  <Link href="/add-marks?subject=english">Add Marks</Link>
                 </Button>
 
                 <Button
@@ -57,7 +57,7 @@ export default function Home() {
                   size="lg"
                   className="h-11 px-8 cursor-pointer font-bold rounded-full"
                 >
-                  <Link href="/show-marks">Show Marks</Link>
+                  <Link href="/show-marks?subject=english">Show Marks</Link>
                 </Button>
               </div>
             </div>
