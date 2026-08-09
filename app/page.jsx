@@ -11,6 +11,12 @@ export default function Home() {
         <h2 className="text-muted-foreground">
           Kindergarten Mark Recording System
         </h2>
+        <Button
+          variant="outline"
+          className="cursor-pointer hover:text-slate-200 self-start text-pink-300"
+        >
+          <Link href="/show-report">Show Report</Link>
+        </Button>
         <div className="flex flex-col gap-4 w-full">
           <Card>
             <div className="flex flex-col gap-4 w-full p-8 sm:flex-row">

@@ -6,9 +6,37 @@ import {
   calculateSemesterAverage,
   calculateYearlyAverage,
 } from "@/lib/calculations";
-import { subjects } from "@/lib/subject";
 
-export default function RecordedMarksTable({ students, assessments, subject }) {
+export default function RecordedMarksTable({
+  students,
+  assessments,
+  subject,
+  savedSemesterAverage,
+}) {
+  const hasSemester1 = students.some((student) => {
+    return (
+      calculateSemesterAverage(
+        assessments,
+        student.id,
+        1,
+        subject.evaluationsPerSemester,
+      ) !== null
+    );
+  });
+
+  const hasSemester2 = students.some((student) => {
+    return (
+      calculateSemesterAverage(
+        assessments,
+        student.id,
+        2,
+        subject.evaluationsPerSemester,
+      ) !== null
+    );
+  });
+
+  const hasYearly = hasSemester1 && hasSemester2;
+
   return (
     <div className="w-full overflow-x-auto">
       <Table className=" overflow-x-auto">
@@ -16,24 +44,16 @@ export default function RecordedMarksTable({ students, assessments, subject }) {
 
         <TableBody>
           {students.map((student) => {
-            const semester1 = calculateSemesterAverage(
-              assessments,
-              student.id,
-              1,
-              subject.evaluationsPerSemester,
-            );
+            const semester1 =
+              savedSemesterAverage?.semester1?.[student.id] ?? null;
 
-            const semester2 = calculateSemesterAverage(
-              assessments,
-              student.id,
-              2,
-              subject.evaluationsPerSemester,
-            );
+            const semester2 =
+              savedSemesterAverage?.semester2?.[student.id] ?? null;
 
-            const yearly = calculateYearlyAverage(semester1, semester2);
+            const yearlyAverage =
+              savedSemesterAverage?.yearly?.[student.id] ?? null;
             return (
               <TableRow key={student.id} className="border-0">
-                {/* Student name */}
                 <TableCell className="w-50 min-w-50 truncate border-r border-gray-800">
                   {student.name}
                 </TableCell>
@@ -47,17 +67,25 @@ export default function RecordedMarksTable({ students, assessments, subject }) {
                   />
                 ))}
 
-                <TableCell>
-                  {semester1 !== null ? `${semester1.toFixed(1)}%` : "—"}
-                </TableCell>
+                {hasSemester1 && (
+                  <TableCell className="bg-gray-900">
+                    {semester1 !== null ? `${semester1.toFixed(1)}%` : "—"}
+                  </TableCell>
+                )}
 
-                <TableCell>
-                  {semester2 !== null ? `${semester2.toFixed(1)}%` : "—"}
-                </TableCell>
+                {hasSemester2 && (
+                  <TableCell className="bg-gray-900">
+                    {semester2 !== null ? `${semester2.toFixed(1)}%` : "—"}
+                  </TableCell>
+                )}
 
-                <TableCell>
-                  {yearly !== null ? `${yearly.toFixed(1)}%` : "—"}
-                </TableCell>
+                {hasYearly && (
+                  <TableCell className="bg-gray-800">
+                    {yearlyAverage !== null
+                      ? `${yearlyAverage.toFixed(1)}%`
+                      : "—"}
+                  </TableCell>
+                )}
               </TableRow>
             );
           })}

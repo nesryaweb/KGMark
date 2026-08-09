@@ -5,14 +5,13 @@ export default function ThemeCells({ assessment, studentId, subject }) {
 
   const percentage = assessment?.averages?.[studentId] ?? 0;
 
-
   const grade = getGrade(percentage);
   return (
     <>
       <TableCell className="text-right w-20 min-w-20">{mark}</TableCell>
       {subject.calculateEvaluationAverage && (
         <TableCell className="text-right border-r border-gray-800 w-20 min-w-20">
-          {percentage}%
+          {percentage.toFixed(1)}%
         </TableCell>
       )}
     </>
