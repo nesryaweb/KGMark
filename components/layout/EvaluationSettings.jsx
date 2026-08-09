@@ -43,11 +43,9 @@ export default function EvaluationSettings({
 
         <Select
           value={selectedEvaluation}
-          onValueChange={(value) => {
-            setSelectedEvaluation(value);
-          }}
+          onValueChange={setSelectedEvaluation}
         >
-          <SelectTrigger className="h-11">
+          <SelectTrigger className="cursor-pointer">
             <SelectValue placeholder="Select evaluation" />
           </SelectTrigger>
 
@@ -72,23 +70,13 @@ export default function EvaluationSettings({
           />
         </div>
         <div className="space-y-2 flex gap-4 items-center">
-          <Label> Fill marks automatically </Label>
           <Checkbox
+            id="fill-marks"
             checked={fillAutomatically}
-            onCheckedChange={(checked) => {
-              setFillAutomatically(checked);
-
-              if (checked) {
-                const newMarks = {};
-
-                students.forEach((student) => {
-                  newMarks[student.id] = fullMark;
-                });
-
-                setMarks(newMarks);
-              }
-            }}
+            onCheckedChange={handleAutoFill}
           />
+
+          <Label htmlFor="fill-marks">Fill marks automatically</Label>
         </div>
       </div>
     </div>

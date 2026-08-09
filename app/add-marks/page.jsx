@@ -63,7 +63,7 @@ export default function AddMarks() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans bg-slate-950">
-      <main className="flex flex-col items-center justify-center gap-4 p-8 w-2/3 bg-slate-900 rounded-lg h-screen  ">
+      <main className="flex flex-col items-center justify-center gap-4 p-8w-full md:w-3/4 bg-slate-900 rounded-lg h-screen  ">
         <Button
           variant="ghost"
           className="cursor-pointer text-slate-400 hover:text-slate-200"
