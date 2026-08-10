@@ -2,6 +2,8 @@ import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+import { seedDummyMarks } from "@/lib/dummy/seedDummyMarks";
+import PopulateDummyButton from "@/components/layout/PopulateDummyData";
 
 export default function Home() {
   return (
@@ -11,12 +13,15 @@ export default function Home() {
         <h2 className="text-muted-foreground">
           Kindergarten Mark Recording System
         </h2>
-        <Button
-          variant="outline"
-          className="cursor-pointer hover:text-slate-200 self-start text-pink-300"
-        >
-          <Link href="/show-report">Show Report</Link>
-        </Button>
+        <div className="flex justify-between items-baseline gap-4 w-full">
+          <Button
+            variant="outline"
+            className="h-11 px-8 cursor-pointer font-bold rounded-full border-b-2 border-pink-300 text-pink-300 hover:text-slate-200"
+          >
+            <Link href="/show-report">Show Report</Link>
+          </Button>
+          <PopulateDummyButton />
+        </div>
         <div className="flex flex-col gap-4 w-full">
           <Card>
             <div className="flex flex-col gap-4 w-full p-8 sm:flex-row">
