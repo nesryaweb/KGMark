@@ -54,7 +54,7 @@ export default function RecordedMarksTable({
               savedSemesterAverage?.yearly?.[student.id] ?? null;
             return (
               <TableRow key={student.id} className="border-0">
-                <TableCell className="w-50 min-w-50 truncate border-r border-gray-800">
+                <TableCell className="w-50 min-w-50 truncate border-r-2 border-gray-900">
                   {student.name}
                 </TableCell>
 

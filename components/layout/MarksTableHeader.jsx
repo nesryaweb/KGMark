@@ -7,7 +7,7 @@ export default function MarksTableHeader({ assessments, subject }) {
       <TableRow className="border-0">
         <TableHead
           rowSpan={2}
-          className="text-center w-20 min-w-20    truncate border-r border-gray-800"
+          className="text-center w-20 min-w-20    truncate border-r-2 border-gray-900"
         >
           Students
         </TableHead>
@@ -16,7 +16,7 @@ export default function MarksTableHeader({ assessments, subject }) {
             <TableHead
               key={assessment.evaluationNumber}
               colSpan={2}
-              className="text-center border-r border-gray-800"
+              className="text-center border-r-2 border-gray-900"
             >
               <div className="flex flex-col items-center gap-1">
                 <span>{assessment.evaluationNumber}</span>
@@ -30,7 +30,7 @@ export default function MarksTableHeader({ assessments, subject }) {
             <TableHead
               key={assessment.evaluationNumber}
               colSpan={1}
-              className="text-center border-r w-20 min-w-20  border-gray-800"
+              className="text-center border-r w-20 min-w-20  border-gray-900"
             >
               <div className="flex flex-col items-center gap-1">
                 <span>{assessment.evaluationNumber}</span>
@@ -46,21 +46,21 @@ export default function MarksTableHeader({ assessments, subject }) {
         <>
           <TableHead
             rowSpan={2}
-            className="text-center border-r w-20 min-w-20  border-gray-800 bg-gray-900"
+            className="text-center border-r w-20 min-w-20  border-gray-900 bg-gray-900"
           >
             FSA
           </TableHead>
 
           <TableHead
             rowSpan={2}
-            className="text-center border-r w-20 min-w-20  border-gray-800 bg-gray-900"
+            className="text-center border-r w-20 min-w-20  border-gray-900 bg-gray-900"
           >
             SSA
           </TableHead>
 
           <TableHead
             rowSpan={2}
-            className="text-center border-r w-20 min-w-20  border-gray-800 bg-gray-800"
+            className="text-center border-r w-20 min-w-20  border-gray-900 bg-gray-800"
           >
             YA
           </TableHead>
@@ -80,7 +80,7 @@ export default function MarksTableHeader({ assessments, subject }) {
 
               <TableHead
                 key={`${assessment.evaluationNumber}-percentage`}
-                className="border-r w-20 min-w-20  border-gray-800 text-right"
+                className="border-r w-20 min-w-20  border-gray-900 text-right"
               >
                 %
               </TableHead>
@@ -88,7 +88,7 @@ export default function MarksTableHeader({ assessments, subject }) {
           ) : (
             <TableHead
               key={`${assessment.evaluationNumber}-mark`}
-              className="border-r w-20 min-w-20    border-gray-800 text-right"
+              className="border-r w-20 min-w-20    border-gray-900 text-right"
             >
               Mark
             </TableHead>

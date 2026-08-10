@@ -7,18 +7,24 @@ export default function Header() {
       <TableRow className="border-0">
         <TableHead
           rowSpan={2}
-          className="text-center border-r border-gray-800 min-w-50"
+          className="text-center border-r-2 border-gray-900 min-w-50"
         >
           Student
         </TableHead>
 
         {/* CHIBT */}
-        <TableHead colSpan={9} className="text-center border-r border-gray-800">
+        <TableHead
+          colSpan={9}
+          className="text-center border-r-2 border-gray-900"
+        >
           Chibt
         </TableHead>
 
         {/* ENGLISH */}
-        <TableHead colSpan={3} className="text-center border-r border-gray-800">
+        <TableHead
+          colSpan={3}
+          className="text-center border-r-2 border-gray-900"
+        >
           English
         </TableHead>
       </TableRow>

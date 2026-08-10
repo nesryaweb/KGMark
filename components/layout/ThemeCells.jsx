@@ -10,7 +10,7 @@ export default function ThemeCells({ assessment, studentId, subject }) {
     <>
       <TableCell className="text-right w-20 min-w-20">{mark}</TableCell>
       {subject.calculateEvaluationAverage && (
-        <TableCell className="text-right border-r border-gray-800 w-20 min-w-20">
+        <TableCell className="text-right border-r-2 border-gray-900 w-20 min-w-20">
           {percentage.toFixed(1)}%
         </TableCell>
       )}
