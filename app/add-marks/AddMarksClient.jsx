@@ -71,9 +71,9 @@ export default function AddMarksClient() {
       <main className="flex flex-col items-center justify-center gap-4 p-8 w-full md:w-3/4 bg-slate-900 rounded-lg h-screen  ">
         <Button
           variant="ghost"
-          className="cursor-pointer text-slate-400 hover:text-slate-200"
+          className="cursor-pointer text-slate-400 hover:text-slate-200 self-end"
         >
-          <Link href="/">← Back</Link>
+          <Link href="/">← Back to home</Link>
         </Button>
         <h2 className="text-muted-foreground">
           Record {subject.name} Evaluation Marks

@@ -14,13 +14,21 @@ export default function Home() {
           Kindergarten Mark Recording System
         </h2>
         <div className="flex sm:flex-row flex-col justify-between items-baseline gap-4 w-full">
+          <div className="flex gap-4 w-full">
+            <Button
+              variant="outline"
+              className="h-11 px-8 cursor-pointer font-bold rounded-full border-b-2 border-pink-300 text-pink-300 hover:text-slate-200"
+            >
+              <Link href="/show-report">Show Report</Link>
+            </Button>
+            <PopulateDummyButton />
+          </div>
           <Button
-            variant="outline"
-            className="h-11 px-8 cursor-pointer font-bold rounded-full border-b-2 border-pink-300 text-pink-300 hover:text-slate-200"
+            variant="ghost"
+            className="cursor-pointer text-slate-400 hover:text-slate-200"
           >
-            <Link href="/show-report">Show Report</Link>
+            <Link href="/about-kg-mark">About KG Marks</Link>
           </Button>
-          <PopulateDummyButton />
         </div>
         <div className="flex flex-col gap-4 w-full">
           <Card>

@@ -38,7 +38,7 @@ export default function ShowMarks() {
        
           <Button
             variant="ghost"
-            className="cursor-pointer text-slate-400 hover:text-slate-200 self-start"
+            className="cursor-pointer text-slate-400 hover:text-slate-200 self-end"
           >
             <Link href="/">← Back to home</Link>
           </Button>
