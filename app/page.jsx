@@ -13,7 +13,7 @@ export default function Home() {
         <h2 className="text-muted-foreground">
           Kindergarten Mark Recording System
         </h2>
-        <div className="flex justify-between items-baseline gap-4 w-full">
+        <div className="flex sm:flex-row flex-col justify-between items-baseline gap-4 w-full">
           <Button
             variant="outline"
             className="h-11 px-8 cursor-pointer font-bold rounded-full border-b-2 border-pink-300 text-pink-300 hover:text-slate-200"
