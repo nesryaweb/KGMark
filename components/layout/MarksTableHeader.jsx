@@ -66,7 +66,7 @@ export default function MarksTableHeader({ assessments, subject }) {
           </TableHead>
         </>
       </TableRow>
-      {/* Row 3 - Mark / % */}
+      {/* Second header row: individual assessment columns (Mark / % when applicable) */}
       <TableRow className="border-0">
         {assessments?.map((assessment) =>
           subject.calculateEvaluationAverage ? (

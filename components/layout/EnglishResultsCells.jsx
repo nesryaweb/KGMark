@@ -21,13 +21,9 @@ export default function EnglishResultsCells({ studentId }) {
 
   return (
     <>
-      {/* English Semester 1 */}
+      {/* Stored English semester averages mapped to visible cells */}
       <ResultCell value={semester1} color="bg-gray-900" />
-
-      {/* English Semester 2 */}
       <ResultCell value={semester2} color="bg-gray-900" />
-
-      {/* English Yearly */}
       <ResultCell value={yearly} color="bg-gray-800" />
     </>
   );

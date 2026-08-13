@@ -17,18 +17,16 @@ export default function ResultsTable({
         <TableBody>
           {students.map((student) => (
             <TableRow key={student.id} className="border-0">
-              {/* Student */}
+              {/* Row: student name, CHIBT cells, English cells (in that order) */}
               <TableCell className="border-r-2 border-gray-900 min-w-50 font-medium">
                 {student.name}
               </TableCell>
 
-              {/* Chibt */}
               <ChibtResultsCells
                 studentId={student.id}
                 assessments={chibtAssessments}
               />
 
-              {/* English */}
               <EnglishResultsCells
                 studentId={student.id}
                 assessments={englishAssessments}
